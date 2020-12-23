@@ -1,0 +1,17 @@
+#!/bin/bash
+
+log=/home/pi/xmas.log
+d=$(date)
+/bin/echo "${d}: xmas.bsh invoked; waiting for 50s..." >> ${log}
+sleep 50
+
+who=$(whoami)
+d=$(date)
+host=$(hostname)
+echo "${d}: whoami returned \"${who}\"" >> ${log}
+echo "${d}: hostname returned \"${host}\"" >> ${log}
+d=$(date)
+echo "${d}: invoking xmas.py..." >> ${log}
+python -u /home/pi/xmas.py >> ${log}
+echo "${d}: should never get here..." >> ${log}
+
