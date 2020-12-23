@@ -17,12 +17,12 @@ if (DEBUG == 1):
    EndHr = now.hour
    EndMin = now.minute+2
 else:
-   # start at 4pm
-   StartHr = 16
+   # start at 5pm
+   StartHr = 17
    StartMin = 0
    
-   # end at 8pm
-   EndHr = 20
+   # end at 10pm
+   EndHr = 22
    EndMin = 0
 
 
