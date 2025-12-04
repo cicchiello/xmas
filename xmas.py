@@ -2,7 +2,7 @@
 
 from gpiozero import LEDBoard,TimeOfDay
 from gpiozero.tools import random_values,multiplied
-from datetime import time,datetime
+from datetime import time,datetime,timedelta
 from signal import pause
 from threading import Timer
 import socket
@@ -52,7 +52,7 @@ def is_time_between(begin_time, end_time, check_time=None):
      
 def sched_one(_day, _hr, _min, _func):
    now=datetime.today()
-   schtime = now + timedelta(days=(_day = now.day()) # deal with month roll
+   schtime = now + timedelta(days=(_day - now.day))   # deal with month roll
    schtime=now.replace(hour=_hr, minute=_min, second=0, microsecond=0)
    if (schtime > now):
       delta_t=schtime-now
