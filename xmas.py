@@ -17,13 +17,14 @@ if (DEBUG == 1):
    EndHr = now.hour
    EndMin = now.minute+2
 else:
-   # start at 5pm
+   # start at 5:00 pm
+   #StartHr = 17
    StartHr = 17
-   StartMin = 0
+   StartMin = 00
    
-   # end at 10pm
-   EndHr = 22
-   EndMin = 0
+   # end at 11:30pm
+   EndHr = 23
+   EndMin = 30
 
 
 def is_connected():
@@ -51,7 +52,8 @@ def is_time_between(begin_time, end_time, check_time=None):
      
 def sched_one(_day, _hr, _min, _func):
    now=datetime.today()
-   schtime=now.replace(day=_day, hour=_hr, minute=_min, second=0, microsecond=0)
+   schtime = now + timedelta(days=(_day = now.day()) # deal with month roll
+   schtime=now.replace(hour=_hr, minute=_min, second=0, microsecond=0)
    if (schtime > now):
       delta_t=schtime-now
 
