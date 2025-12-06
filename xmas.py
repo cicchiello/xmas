@@ -53,12 +53,12 @@ def is_time_between(begin_time, end_time, check_time=None):
 def sched_one(_day, _hr, _min, _func):
    now=datetime.today()
    schtime = now + timedelta(days=(_day - now.day))   # deal with month roll
-   schtime=now.replace(hour=_hr, minute=_min, second=0, microsecond=0)
+   schtime=schtime.replace(hour=_hr, minute=_min, second=0, microsecond=0)
    if (schtime > now):
       delta_t=schtime-now
 
       sleep_s = delta_t.days*24*3600 + delta_t.seconds
-      print nowstr(), "DEBUG: sleep_s:",sleep_s
+      print nowstr(), "INFO: sleep_s:",sleep_s
       Timer(sleep_s+1, _func).start()
       return schtime
    else:
@@ -68,13 +68,11 @@ def sched_one(_day, _hr, _min, _func):
 
 
 def sched_tomorrow():
-   print nowstr(), "INFO: scheduled tomorrow"
    sched_all(1)
+   print nowstr(), "INFO: scheduled tomorrow"
    
    
 def sched_all(dayDelta):
-   print nowstr(), "DEBUG: dayDelta:",dayDelta
-   
    now=datetime.today()
    startDay = now.day+dayDelta
    startHr = StartHr

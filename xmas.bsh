@@ -13,5 +13,5 @@ echo "${d}: hostname returned \"${host}\"" >> ${log}
 d=$(date)
 echo "${d}: invoking xmas.py..." >> ${log}
 python -u /home/pi/xmas/xmas.py >> ${log}
+d=$(date)
 echo "${d}: should never get here..." >> ${log}
-
